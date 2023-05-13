@@ -19,6 +19,10 @@ public class Email {
     }
 
     public void changePassword(String oldPassword, String newPassword){
+        if (oldPassword.equals(password) && newPassword.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$")) {
+            password = newPassword;
+        }
+
         //Change password only if the oldPassword is equal to current password and the new password meets all of the following:
         // 1. It contains at least 8 characters
         // 2. It contains at least one uppercase letter
